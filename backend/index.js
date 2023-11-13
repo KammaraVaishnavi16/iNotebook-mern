@@ -6,14 +6,14 @@ connectToMongo();
 
 const app = express();
 const port = 5000;
-app.use(
-  cors({
-    origin: [],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
-// app.use(express.static(path.join(__dirname, "../build")));
+// app.use(
+//   cors({
+//     origin: [],
+//     methods: ["POST", "GET", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
+app.use(express.static(path.join(__dirname, "../inotebook/build")));
 
 //to use request body we use middleware
 app.use(express.json());
