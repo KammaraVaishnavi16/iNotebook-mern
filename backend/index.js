@@ -18,6 +18,9 @@ app.use(express.static(path.join(__dirname, "../inotebook/build")));
 //to use request body we use middleware
 app.use(express.json());
 //available routes
+app.get("/", (req, res) => {
+  res.send("Welecome to iNotebook");
+});
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/notes", require("./routes/notes"));
 app.listen(port, () => {
