@@ -14,6 +14,8 @@ app.use(
   })
 );
 // app.use(cors());
+// Handling preflight requests
+app.options("/api/auth/createuser", cors());
 app.use(express.static(path.join(__dirname, "../inotebook/build")));
 
 //to use request body we use middleware
