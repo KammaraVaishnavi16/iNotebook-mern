@@ -40,16 +40,13 @@ function App() {
   };
 
   const handleUserDetails = async () => {
-    const response = await fetch(
-      `https://i-notebook-api-ashen.vercel.app/api/auth/getuser`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": localStorage.getItem("token"),
-        },
-      }
-    );
+    const response = await fetch(`http://localhost:5000/api/auth/getuser`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("token"),
+      },
+    });
     if (!response.ok) {
       throw new Error(
         `Failed to fetch user details. Status: ${response.status}`

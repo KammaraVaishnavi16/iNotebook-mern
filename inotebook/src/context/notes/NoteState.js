@@ -8,7 +8,7 @@ const NoteState = (props) => {
   const getNotes = async () => {
     //api call
     const response = await fetch(
-      `https://i-notebook-api-ashen.vercel.app/api/notes/fetchallnotes`,
+      `http://localhost:5000/api/notes/fetchallnotes`,
       {
         method: "GET",
         headers: {
@@ -24,18 +24,15 @@ const NoteState = (props) => {
   //Add Note
   const addNote = async (title, description, tag) => {
     //api call
-    const response = await fetch(
-      `https://i-notebook-api-ashen.vercel.app/api/notes/addnote`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": localStorage.getItem("token"),
-        },
-        body: JSON.stringify({ title, description, tag }),
-        timeout: 15000,
-      }
-    );
+    const response = await fetch(`http://localhost:5000/api/notes/addnote`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("token"),
+      },
+      body: JSON.stringify({ title, description, tag }),
+      timeout: 15000,
+    });
     const note = await response.json();
     setNotes(notes.concat(note));
     // setNotes([...notes, { note }]);
@@ -45,7 +42,7 @@ const NoteState = (props) => {
   const deleteNote = async (id) => {
     // API call
     const response = await fetch(
-      `https://i-notebook-api-ashen.vercel.app/api/notes/deletenote/${id}`,
+      `http://localhost:5000/api/notes/deletenote/${id}`,
       {
         method: "DELETE",
         headers: {
@@ -65,7 +62,7 @@ const NoteState = (props) => {
   const editNote = async (id, title, description, tag) => {
     //API Call
     const response = await fetch(
-      `https://i-notebook-api-ashen.vercel.app/api/notes/updatenote/${id}`,
+      `http://localhost:5000/api/notes/updatenote/${id}`,
       {
         method: "PUT",
         headers: {

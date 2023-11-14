@@ -12,7 +12,8 @@ const port = 5000;
 app.use(cors());
 
 // Serve static files from the frontend
-app.use(express.static("https://i-notebook-frontend-wheat.vercel.app"));
+// app.use(express.static("https://i-notebook-frontend-wheat.vercel.app"));
+app.use(express.static(path.join(__dirname, "../inotebook/build")));
 app.use(express.json());
 
 // Available routes
