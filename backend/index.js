@@ -1,36 +1,28 @@
 const connectToMongo = require("./db");
 const express = require("express");
 const path = require("path");
-const cors = require("cors");
+const cors = require("cors"); // Add this line
+
 connectToMongo();
 
 const app = express();
 const port = 5000;
 
-// app.use(
-//   cors({
-//     origin: ["https://i-notebook-frontend-wheat.vercel.app"],
-//     methods: ["POST", "GET", "PUT", "DELETE"],
-//     credentials: true,
-//   })
-// );
+// Enable CORS for all routes
+app.use(cors());
 
-// app.use(cors());
-// Handling preflight requests
-// app.options("/api/auth/createuser", cors());
-
+// Serve static files from the frontend
 app.use(express.static("https://i-notebook-frontend-wheat.vercel.app"));
-
-// app.use(express.static(path.join(__dirname, "../inotebook/build")));
-
-//to use request body we use middleware
 app.use(express.json());
-//available routes
+
+// Available routes
 app.get("/", (req, res) => {
-  res.send("Welecome to iNotebook");
+  res.send("Welcome to iNotebook");
 });
+
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/notes", require("./routes/notes"));
+
 app.listen(port, () => {
   console.log(`iNotebook backend app listening at http://localhost:${port}`);
 });
