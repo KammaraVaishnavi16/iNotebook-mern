@@ -13,6 +13,7 @@ app.use(
     credentials: true,
   })
 );
+
 // app.use(cors());
 // Handling preflight requests
 app.options("/api/auth/createuser", cors());
