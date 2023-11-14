@@ -7,20 +7,21 @@ connectToMongo();
 const app = express();
 const port = 5000;
 
-app.use(
-  "/api/auth",
-  cors({
-    origin: ["https://i-notebook-frontend-wheat.vercel.app"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
-  }),
-  require("./routes/auth")
-);
+// app.use(
+//   cors({
+//     origin: ["https://i-notebook-frontend-wheat.vercel.app"],
+//     methods: ["POST", "GET", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
 
 // app.use(cors());
 // Handling preflight requests
-app.options("/api/auth/createuser", cors());
-app.use(express.static(path.join(__dirname, "../inotebook/build")));
+// app.options("/api/auth/createuser", cors());
+
+app.use(express.static("https://i-notebook-frontend-wheat.vercel.app"));
+
+// app.use(express.static(path.join(__dirname, "../inotebook/build")));
 
 //to use request body we use middleware
 app.use(express.json());
