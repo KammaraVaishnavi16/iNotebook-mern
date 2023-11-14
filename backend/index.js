@@ -8,7 +8,7 @@ const app = express();
 const port = 5000;
 app.use(
   cors({
-    origin: ["https://i-notebook-frontend-wheat.vercel.app/login"],
+    origin: ["https://i-notebook-frontend-wheat.vercel.app"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
