@@ -6,12 +6,15 @@ connectToMongo();
 
 const app = express();
 const port = 5000;
+
 app.use(
+  "/api/auth",
   cors({
     origin: ["https://i-notebook-frontend-wheat.vercel.app"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
-  })
+  }),
+  require("./routes/auth")
 );
 
 // app.use(cors());
