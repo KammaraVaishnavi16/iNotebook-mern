@@ -13,6 +13,7 @@ const port = 5000;
 //     credentials: true,
 //   })
 // );
+app.use(cors());
 app.use(express.static(path.join(__dirname, "../inotebook/build")));
 
 //to use request body we use middleware
