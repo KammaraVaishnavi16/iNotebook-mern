@@ -7,4 +7,4 @@ backend/node_modules/
 # Ignore node_modules within the frontend folder
 frontend/node_modules/
 
-backend/vercel.json/
+backend/vercel.json
