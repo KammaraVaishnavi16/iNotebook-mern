@@ -33,6 +33,7 @@ const NoteState = (props) => {
           "auth-token": localStorage.getItem("token"),
         },
         body: JSON.stringify({ title, description, tag }),
+        timeout: 15000,
       }
     );
     const note = await response.json();
@@ -72,6 +73,7 @@ const NoteState = (props) => {
           "auth-token": localStorage.getItem("token"),
         },
         body: JSON.stringify({ title, description, tag }),
+        timeout: 15000,
       }
     );
     const json = await response.json();

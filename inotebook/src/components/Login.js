@@ -14,6 +14,7 @@ const Login = (props) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
+        timeout: 15000,
       }
     );
     const json = await response.json();

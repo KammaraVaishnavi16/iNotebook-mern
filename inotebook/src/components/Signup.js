@@ -18,6 +18,7 @@ const Signup = (props) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ name, email, password }),
+        timeout: 15000,
       }
     );
     const json = await response.json();
