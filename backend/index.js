@@ -22,15 +22,15 @@ app.get("/", (req, res) => {
 });
 
 // Route-specific CORS configuration
-app.use("/api/auth", (req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://i-notebook-frontend-wheat.vercel.app"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
+// app.use("/api/auth", (req, res, next) => {
+//   // res.header(
+//   //   "Access-Control-Allow-Origin",
+//   //   "https://i-notebook-frontend-wheat.vercel.app"
+//   // );
+//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+//   res.header("Access-Control-Allow-Headers", "Content-Type");
+//   next();
+// });
 
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/notes", require("./routes/notes"));
